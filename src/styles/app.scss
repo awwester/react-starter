@@ -1,0 +1,12 @@
+// main scss file for all global styling.
+
+@import "./variables";
+@import "bootstrap/scss/bootstrap";
+@import "styles/vendor/bootswatch";
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: #fefefe;
+}
