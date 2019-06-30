@@ -12,12 +12,11 @@ import 'styles/app.scss';
 
 class App extends React.Component {
   componentDidMount() {
-    const { session, fetchMe } = this.props;
+    const { session, fetchMe, logoutUser } = this.props;
     if (session.token) {
       axios.defaults.headers.common.Authorization = `Token ${session.token}`;
-      fetchMe().then(action => {
-        if (action.type === FETCH_ME_FAILURE)
-          this.props.logoutUser();
+      fetchMe().then((action) => {
+        if (action.type === FETCH_ME_FAILURE) logoutUser();
       });
     }
   }
@@ -39,5 +38,5 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = ({ session }) => ({ session })
+const mapStateToProps = ({ session }) => ({ session });
 export default connect(mapStateToProps, { fetchMe, logoutUser })(App);
