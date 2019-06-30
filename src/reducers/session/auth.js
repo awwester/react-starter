@@ -1,4 +1,5 @@
 import { LOGIN_START, LOGIN_SUCCESS, LOGIN_FAILURE } from 'actions/auth/login';
+import { LOGOUT } from 'actions/auth/logout';
 
 const initialState = {
   isLoading: false,
@@ -23,7 +24,9 @@ export default (state = initialState, action) => {
         isLoading: false,
         error: 'Could not login with provided credentials.'
       };
+    case LOGOUT:
+      return initialState;
     default:
-      return state
+      return state;
   }
 }

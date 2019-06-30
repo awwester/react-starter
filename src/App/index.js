@@ -4,7 +4,8 @@ import axios from 'axios';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { fetchMe } from 'actions/users/current/fetch';
+import { fetchMe, FETCH_ME_FAILURE } from 'actions/users/current/fetch';
+import { logoutUser } from 'actions/auth/logout';
 import Router from 'routes';
 import ModalContainer from 'components/modals/Container';
 import 'styles/app.scss';
@@ -14,7 +15,10 @@ class App extends React.Component {
     const { session, fetchMe } = this.props;
     if (session.token) {
       axios.defaults.headers.common.Authorization = `Token ${session.token}`;
-      fetchMe();
+      fetchMe().then(action => {
+        if (action.type === FETCH_ME_FAILURE)
+          this.props.logoutUser();
+      });
     }
   }
 
@@ -36,4 +40,4 @@ class App extends React.Component {
 }
 
 const mapStateToProps = ({ session }) => ({ session })
-export default connect(mapStateToProps, { fetchMe })(App);
+export default connect(mapStateToProps, { fetchMe, logoutUser })(App);
