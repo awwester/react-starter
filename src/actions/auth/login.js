@@ -13,12 +13,12 @@ const loginFailure = data => ({ type: LOGIN_FAILURE, data });
 export const loginUser = payload => {
   return dispatch => {
     dispatch(loginStart(payload));
-    const url = `${config.apiUrl}auth/login/`;
+    const url = `${config.apiUrl}auth/jwt/`;
 
     return axios.post(url, payload)
       .then(
         success => {
-          axios.defaults.headers.common.Authorization = `Token ${success.data.key}`;
+          axios.defaults.headers.common.Authorization = `JWT ${success.data.token}`;
           return dispatch(loginSuccess(success.data));
         },
         error => {

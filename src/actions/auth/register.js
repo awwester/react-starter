@@ -18,7 +18,7 @@ export const registerUser = payload => {
     return axios.post(url, payload)
       .then(
         success => {
-          axios.defaults.headers.common.Authorization = `Token ${success.data.key}`;
+          axios.defaults.headers.common.Authorization = `JWT ${success.data.token}`;
           return dispatch(registerSuccess(success.data));
         },
         error => dispatch(registerFailure(error.response.data)),
