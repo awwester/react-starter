@@ -4,8 +4,8 @@ import axios from 'axios';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { fetchMe, FETCH_ME_FAILURE } from 'actions/users/current/fetch';
-import { logoutUser } from 'actions/auth/logout';
+import fetchMe, { FETCH_ME_FAILURE } from 'actions/users/current/fetch';
+import logoutUser from 'actions/auth/logout';
 import Router from 'routes';
 import ModalContainer from 'components/modals/Container';
 import 'styles/app.scss';

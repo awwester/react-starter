@@ -1,0 +1,55 @@
+@import "styles/variables";
+
+.dashboard-route {
+  display: flex;
+  height: 100vh;
+
+  $sidenav-width: 200px;
+
+  .dashboard-route-content {
+    padding: 30px;
+  }
+
+  .sidenav-section {
+    height: 100vh;
+    overflow-y: hidden;
+    width: $sidenav-width;
+    min-width: $sidenav-width;
+    background-color: $dark;
+
+    svg { width: 30px;}
+
+    .sidenav {
+      color: white;
+    }
+
+    a {
+      display: block;
+      padding: 10px 15px;
+      font-size: 1.1rem;
+      color: white;
+      transition: 0.2s ease background-color;
+
+      &:hover {
+        background-color: $secondary;
+        text-decoration: none;
+      }
+
+      &.active {
+        background-color: $primary;
+      }
+    }
+
+    .dashboard-header {
+      svg {
+        width: 100%;
+        color: $primary;
+      }
+    }
+  }
+
+  .sidenav-layout-content {
+    width: 100%;
+    overflow-y: scroll;
+  }
+}

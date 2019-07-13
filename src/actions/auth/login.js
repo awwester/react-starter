@@ -10,7 +10,7 @@ const loginSuccess = data => ({ type: LOGIN_SUCCESS, data });
 export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 const loginFailure = data => ({ type: LOGIN_FAILURE, data });
 
-export const loginUser = payload => {
+export default (payload) => {
   return dispatch => {
     dispatch(loginStart(payload));
     const url = `${config.apiUrl}auth/login/`;

@@ -10,7 +10,7 @@ const fetchMeSuccess = data => ({ type: FETCH_ME_SUCCESS, data });
 export const FETCH_ME_FAILURE = 'FETCH_ME_FAILURE';
 const fetchMeFailure = () => ({ type: FETCH_ME_FAILURE });
 
-export const fetchMe = () => dispatch => {
+export default () => dispatch => {
   dispatch(fetchMeStart());
   const url = `${config.apiUrl}users/me/`;
 

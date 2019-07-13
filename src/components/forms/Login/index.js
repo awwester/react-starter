@@ -7,7 +7,7 @@ import * as Yup from 'yup';
 import { connect } from 'react-redux';
 
 import LoadButton from 'components/buttons/LoadButton';
-import { loginUser, LOGIN_SUCCESS, LOGIN_FAILURE } from 'actions/auth/login';
+import loginUser, { LOGIN_SUCCESS, LOGIN_FAILURE } from 'actions/auth/login';
 
 const LoginForm = props => {
   const {
@@ -78,7 +78,7 @@ const FormikForm = withFormik({
       if (action.type === LOGIN_FAILURE) {
         setStatus({ error: 'Unable to login with the provided credentials.'});
       } else if (action.type === LOGIN_SUCCESS) {
-        props.history.push('/dashboard');
+        props.history.push('/dashboard/home');
       }
     });
   },
