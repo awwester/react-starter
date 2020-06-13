@@ -4,7 +4,7 @@ import { LOGOUT } from 'actions/auth/logout';
 const initialState = {
   isLoading: false,
   token: '',
-  error: ''
+  error: '',
 }
 
 export default (state = initialState, action) => {
@@ -15,14 +15,15 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        token: action.data.key,
-        error: ''
+        token: action.data.access,
+        refresh: action.data.refresh,
+        error: '',
       };
     case LOGIN_FAILURE:
       return {
         ...state,
         isLoading: false,
-        error: 'Could not login with provided credentials.'
+        error: 'Could not login with provided credentials.',
       };
     case LOGOUT:
       return initialState;
