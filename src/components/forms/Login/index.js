@@ -1,11 +1,11 @@
 import React from "react";
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { Button, Input, Form, FormGroup, FormFeedback, FormText } from "reactstrap";
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 import LoadButton from 'components/buttons/LoadButton';
-import loginUser, { LOGIN_SUCCESS, LOGIN_FAILURE } from 'actions/auth/login';
+import loginUser, { LOGIN_SUCCESS } from 'actions/auth/login';
 
 export default function LoginForm() {
   const history = useHistory();
@@ -25,7 +25,7 @@ export default function LoginForm() {
       if (action.type === LOGIN_SUCCESS) {
         history.push('/dashboard/');
       } else {
-        let errorMessage = action.data && action.data.detail || "Unable to login";
+        let errorMessage = (action.data && action.data.detail) || "Unable to login";
         setError("form", "general", errorMessage);
       }
     } catch(error) {
