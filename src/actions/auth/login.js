@@ -18,7 +18,6 @@ export default (payload) => {
     return axios.post(url, payload)
       .then(
         response => {
-          console.log(response)
           axios.defaults.headers.common.Authorization = `Token ${response.data.access}`;
           return dispatch(loginSuccess(response.data));
         },

@@ -9,5 +9,5 @@ Starter project for taking care of many standard boilerplate features of react a
 - Modals
 - Toasts
 - Persisted redux state
-- Formik forms
+- React hook forms
 - Styling with Scss
