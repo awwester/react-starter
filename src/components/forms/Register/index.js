@@ -2,23 +2,53 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { Form } from "reactstrap";
 
+import FormGroup from 'components/forms/FormGroup';
+import FormGeneralError from 'components/forms/GeneralError';
+import ButtonContainer from 'components/forms/ButtonContainer';
+
 export default function RegisterForm() {
-  const { register, handleSubmit, watch, errors } = useForm();
+  const { register, handleSubmit, errors, formState } = useForm({
+    defaultValues: {
+      username: '',
+      password1: '',
+      password2: '',
+      firstName: '',
+      lastName: '',
+      email: '',
+    }
+  });
+  const { isSubmitting } = formState;
+
   const onSubmit = data => console.log(data);
 
-  console.log(watch("example")); // watch input value by passing the name of it
-
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
-    {/* register your input into the hook by invoking the "register" function */}
-      <input name="example" defaultValue="test" ref={register} />
-
-      {/* include validation with required or other standard HTML validation rules */}
-      <input name="exampleRequired" ref={register({ required: true })} />
-      {/* errors will return when field validation fails  */}
-      {errors.exampleRequired && <span>This field is required</span>}
-
-      <input type="submit" />
+    <Form onSubmit={handleSubmit(onSubmit)} className="p-4">
+      <FormGroup
+        name="username"
+        label="Username"
+        error={errors.username}
+        innerRef={register({required: "username is required"})}
+      />
+      <FormGroup
+        name="email"
+        label="Email"
+        error={errors.email}
+        innerRef={register({required: "email is required"})}
+      />
+      <FormGroup
+        name="firstName"
+        label="First name"
+        error={errors.firstName}
+        innerRef={register({required: "first name is required"})}
+      />
+      <FormGroup
+        name="lastName"
+        label="Last name"
+        error={errors.lastName}
+        innerRef={register}
+      />
+      <FormGeneralError error={errors.form && errors.form.message} />
+      <ButtonContainer isSubmitting={isSubmitting}>Register</ButtonContainer>
     </Form>
   );
 }
