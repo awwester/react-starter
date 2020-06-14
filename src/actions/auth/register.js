@@ -13,7 +13,7 @@ const registerFailure = data => ({ type: REGISTER_FAILURE, data });
 export default (payload) => {
   return (dispatch) => {
     dispatch(registerStart());
-    const url = `${config.apiUrl}auth/registration/`;
+    const url = `${config.apiUrl}auth/users/create`;
 
     return axios.post(url, payload)
       .then(

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 import LoginForm from 'components/forms/Login';
 
@@ -11,6 +12,7 @@ class LoginRoute extends React.Component {
           <Row>
             <Col sm={{size: 4, offset: 4}}>
               <LoginForm />
+              <div className="text-center">New user? <Link to="/auth/register">Register</Link></div>
             </Col>
           </Row>
         </Container>
