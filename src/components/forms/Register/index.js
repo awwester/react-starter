@@ -9,6 +9,7 @@ import FormGeneralError from 'components/forms/GeneralError';
 import ButtonContainer from 'components/forms/ButtonContainer';
 import { REGISTER_FAILURE, REGISTER_SUCCESS } from 'actions/auth/types';
 import registerUser from 'actions/auth/register';
+import loginUser from 'actions/auth/login';
 
 export default function RegisterForm() {
   const history = useHistory();
@@ -35,8 +36,12 @@ export default function RegisterForm() {
           return setError(errorKey, "general", action.data[errorKey][0]);
         })
       } else if (action.type === REGISTER_SUCCESS) {
-        console.log('success...', action.data);
-        // history.push('/dashboard/home');
+        try {
+          await dispatch(loginUser({'username': data.username, 'password': data.password}));
+          history.push('/dashboard/home');
+        } catch (error) {
+          console.log('Error...', error);
+        }
       }
     } catch (error) {
       console.log('general error...', error);

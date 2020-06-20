@@ -31,7 +31,6 @@ export default function LoginForm() {
         setError("form", "general", errorMessage);
       }
     } catch(error) {
-      console.log('general error...', error);
       setError("form", "general", "Unable to login at this time.");
     }
   }

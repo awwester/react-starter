@@ -11,7 +11,6 @@ export const REGISTER_FAILURE = 'REGISTER_FAILURE';
 const registerFailure = data => ({ type: REGISTER_FAILURE, data });
 
 export default (payload) => {
-  console.log('first line in action')
   return dispatch => {
     dispatch(registerStart());
     const url = `${config.apiUrl}auth/users/`;
