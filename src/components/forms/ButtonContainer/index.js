@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-import LoadButton from 'components/buttons/LoadButton';
+import LoadButton from "components/buttons/LoadButton";
 
 export default function ButtonContainer({ isSubmitting, ...rest }) {
   return (
@@ -16,9 +16,9 @@ export default function ButtonContainer({ isSubmitting, ...rest }) {
         {rest.children}
       </LoadButton>
     </div>
-  )
+  );
 }
 
 ButtonContainer.propTypes = {
   isSubmitting: PropTypes.bool.isRequired,
-}
+};

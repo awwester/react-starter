@@ -1,9 +1,9 @@
-import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import React from "react";
+import { Switch, Route } from "react-router-dom";
 
-import LandingRoute from './general/Landing';
-import AuthRouter from './auth';
-import DashboardRouter from './dashboard';
+import LandingRoute from "./general/Landing";
+import AuthRouter from "./auth";
+import DashboardRouter from "./dashboard";
 
 class Router extends React.Component {
   // main router for the whole application
@@ -17,6 +17,5 @@ class Router extends React.Component {
     );
   }
 }
-
 
 export default Router;

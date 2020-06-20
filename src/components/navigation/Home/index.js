@@ -1,15 +1,21 @@
-import React from 'react';
-import { withRouter } from 'react-router-dom';
+import React from "react";
+import { withRouter } from "react-router-dom";
 import {
-  Button, Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem,
+  Button,
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
   NavLink,
-} from 'reactstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faHome } from '@fortawesome/free-solid-svg-icons';
-import { toast } from 'react-toastify';
+} from "reactstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faHome } from "@fortawesome/free-solid-svg-icons";
+import { toast } from "react-toastify";
 
 class HomeNav extends React.Component {
-  state = { isOpen: false }
+  state = { isOpen: false };
 
   toggle = () => this.setState({ isOpen: !this.state.isOpen });
 
@@ -25,7 +31,9 @@ class HomeNav extends React.Component {
         <Collapse isOpen={this.state.isOpen} navbar>
           <Nav className="ml-auto" navbar>
             <NavItem>
-              <NavLink onClick={() => toast('There are none yet.')}>Features</NavLink>
+              <NavLink onClick={() => toast("There are none yet.")}>
+                Features
+              </NavLink>
             </NavItem>
             <NavItem>
               <NavLink>Pricing</NavLink>
@@ -38,8 +46,10 @@ class HomeNav extends React.Component {
                 className="px-3"
                 color="primary"
                 outline
-                onClick={() => this.props.history.push('/auth/login')}
-              > Login
+                onClick={() => this.props.history.push("/auth/login")}
+              >
+                {" "}
+                Login
               </Button>
             </NavItem>
           </Nav>
@@ -48,6 +58,5 @@ class HomeNav extends React.Component {
     );
   }
 }
-
 
 export default withRouter(HomeNav);

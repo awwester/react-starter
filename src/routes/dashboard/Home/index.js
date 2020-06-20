@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 class HomeRoute extends React.Component {
   render() {
@@ -6,7 +6,7 @@ class HomeRoute extends React.Component {
       <div className="home-route p-4">
         This is a dashboard section for home.
       </div>
-    )
+    );
   }
 }
 

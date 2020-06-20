@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 class OtherRoute extends React.Component {
   render() {
@@ -6,7 +6,7 @@ class OtherRoute extends React.Component {
       <div className="other-route p-4">
         This is for dashboard section for something else.
       </div>
-    )
+    );
   }
 }
 

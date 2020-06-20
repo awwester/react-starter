@@ -1,8 +1,8 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from "redux";
 
-import SessionAuthReducer from './session/auth';
-import SessionUserReducer from './session/user';
-import ModalReducer from './general/modals';
+import SessionAuthReducer from "./session/auth";
+import SessionUserReducer from "./session/user";
+import ModalReducer from "./general/modals";
 
 const rootReducer = combineReducers({
   session: SessionAuthReducer,

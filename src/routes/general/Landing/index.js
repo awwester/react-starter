@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import HomeNav from 'components/navigation/Home';
+import HomeNav from "components/navigation/Home";
 
 class LandingRoute extends React.Component {
   render() {
@@ -8,7 +8,7 @@ class LandingRoute extends React.Component {
       <div className="landing-route">
         <HomeNav />
       </div>
-    )
+    );
   }
 }
 

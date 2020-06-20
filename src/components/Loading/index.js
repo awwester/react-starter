@@ -1,14 +1,13 @@
-import React from 'react';
+import React from "react";
 
-import { Spinner } from 'reactstrap';
+import { Spinner } from "reactstrap";
 
-
-const Loading = ({ size = 'lg', color = 'primary', style = {} }) => {
+const Loading = ({ size = "lg", color = "primary", style = {} }) => {
   const containerStyle = {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '100%',
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100%",
   };
 
   const spinnerProps = { size, color };
@@ -18,6 +17,5 @@ const Loading = ({ size = 'lg', color = 'primary', style = {} }) => {
     </div>
   );
 };
-
 
 export default Loading;

@@ -17,7 +17,9 @@
     min-width: $sidenav-width;
     background-color: $dark;
 
-    svg { width: 30px;}
+    svg {
+      width: 30px;
+    }
 
     .sidenav {
       color: white;
