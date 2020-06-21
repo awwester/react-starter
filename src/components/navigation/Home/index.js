@@ -1,18 +1,12 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import {
-  Button,
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-} from "reactstrap";
+import { Button, Navbar, Nav } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faHome } from "@fortawesome/free-solid-svg-icons";
 import { toast } from "react-toastify";
+
+const { Brand, Toggle, Collapse } = Navbar;
+const { Item, Link } = Nav;
 
 class HomeNav extends React.Component {
   state = { isOpen: false };
@@ -22,26 +16,24 @@ class HomeNav extends React.Component {
   render() {
     return (
       <Navbar className="landing-navbar" expand="md" fixed="top">
-        <NavbarBrand>
+        <Brand>
           <FontAwesomeIcon icon={faHome} />
-        </NavbarBrand>
-        <NavbarToggler onClick={this.toggle}>
+        </Brand>
+        <Toggle onClick={this.toggle}>
           <FontAwesomeIcon icon={faBars} />
-        </NavbarToggler>
+        </Toggle>
         <Collapse isOpen={this.state.isOpen} navbar>
           <Nav className="ml-auto" navbar>
-            <NavItem>
-              <NavLink onClick={() => toast("There are none yet.")}>
-                Features
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink>Pricing</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink>Contact</NavLink>
-            </NavItem>
-            <NavItem className="ml-5">
+            <Item>
+              <Link onClick={() => toast("There are none yet.")}>Features</Link>
+            </Item>
+            <Item>
+              <Link>Pricing</Link>
+            </Item>
+            <Item>
+              <Link>Contact</Link>
+            </Item>
+            <Item className="ml-5">
               <Button
                 className="px-3"
                 color="primary"
@@ -51,7 +43,7 @@ class HomeNav extends React.Component {
                 {" "}
                 Login
               </Button>
-            </NavItem>
+            </Item>
           </Nav>
         </Collapse>
       </Navbar>

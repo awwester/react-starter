@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Form } from "reactstrap";
+import { Form } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
@@ -36,10 +36,10 @@ export default function LoginForm() {
       } else {
         let errorMessage =
           (action.data && action.data.detail) || "Unable to login";
-        setError("form", "general", errorMessage);
+        setError("detail", "general", errorMessage);
       }
     } catch (error) {
-      setError("form", "general", "Unable to login at this time.");
+      setError("detail", "general", "Unable to login at this time.");
     }
   };
 
@@ -50,7 +50,7 @@ export default function LoginForm() {
         label="Username"
         error={errors.username}
         inputProps={{
-          innerRef: register({ required: "username is required" }),
+          ref: register({ required: "username is required" }),
         }}
       />
       <FormGroup
@@ -58,12 +58,12 @@ export default function LoginForm() {
         label="Password"
         error={errors.password}
         inputProps={{
-          innerRef: register({ required: "password is required" }),
+          ref: register({ required: "password is required" }),
           type: "password",
           autoComplete: "password",
         }}
       />
-      <FormGeneralError error={errors.form} />
+      <FormGeneralError error={errors.detail} />
       <ButtonContainer isSubmitting={isSubmitting}>Login</ButtonContainer>
     </Form>
   );

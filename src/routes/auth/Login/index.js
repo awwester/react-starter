@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col } from "reactstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 import LoginForm from "components/forms/Login";
@@ -9,9 +9,9 @@ class LoginRoute extends React.Component {
   render() {
     return (
       <div className="login-route">
-        <Container>
+        <Container fluid>
           <Row>
-            <Col sm={{ size: 4, offset: 4 }}>
+            <Col sm={{ span: 4, offset: 4 }}>
               <FormTitle>Login</FormTitle>
               <LoginForm />
               <div className="text-center">

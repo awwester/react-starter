@@ -1,38 +1,35 @@
 import React from "react";
-import { FormGroup, FormFeedback, Input, Label } from "reactstrap";
+import { Form } from "react-bootstrap";
 import PropTypes from "prop-types";
 
-export default function CustomFormGroup({
-  name,
-  error,
-  label,
-  inputProps = {},
-}) {
+const { Control, Text, Label, Group } = Form;
+
+export default function CustomGroup({ name, error, label, inputProps = {} }) {
   // Default form group to be reused.
   return (
-    <FormGroup>
+    <Group>
       <Label for={name}>{label}</Label>
-      <Input
+      <Control
         {...inputProps}
         name={name}
         invalid={error && "message" in error}
       />
-      <FormFeedback>{error && error.message}</FormFeedback>
-    </FormGroup>
+      <Text className="text-danger">{error && error.message}</Text>
+    </Group>
   );
 }
 
-CustomFormGroup.propTypes = {
-  // name property of the input element
+CustomGroup.propTypes = {
+  // name property of the Control element
   name: PropTypes.string.isRequired,
-  // form label to be shown with the input
+  // form label to be shown with the Control
   label: PropTypes.string.isRequired,
-  // error object for the input
+  // error object for the Control
   error: PropTypes.object,
-  // properties to be passed to the input component
+  // properties to be passed to the Control component
   inputProps: PropTypes.object,
 };
 
-CustomFormGroup.defaultPropTypes = {
+CustomGroup.defaultPropTypes = {
   inputProps: {},
 };

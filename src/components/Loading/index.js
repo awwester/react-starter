@@ -1,21 +1,20 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-import { Spinner } from "reactstrap";
+import { Spinner } from "react-bootstrap";
 
-const Loading = ({ size = "lg", color = "primary", style = {} }) => {
-  const containerStyle = {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    height: "100%",
-  };
-
-  const spinnerProps = { size, color };
+export default function Loading({ size }) {
   return (
-    <div className="loading-container" style={containerStyle}>
-      <Spinner {...spinnerProps} style={style} />
-    </div>
+    <Spinner animation="grow" role="status" size={size}>
+      <span className="sr-only">Loading...</span>
+    </Spinner>
   );
+}
+
+Loading.propTypes = {
+  size: PropTypes.string,
 };
 
-export default Loading;
+Loading.defaultProps = {
+  size: "md",
+};

@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col } from "reactstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 import RegisterForm from "components/forms/Register";
@@ -9,9 +9,9 @@ class RegisterRoute extends React.Component {
   render() {
     return (
       <div className="register-route">
-        <Container>
+        <Container fluid>
           <Row>
-            <Col sm={{ size: 4, offset: 4 }}>
+            <Col sm={{ span: 4, offset: 4 }}>
               <FormTitle>Register</FormTitle>
               <RegisterForm />
               <div className="text-center">

@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Form } from "reactstrap";
+import { Form } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
@@ -66,7 +66,7 @@ export default function RegisterForm() {
         label="Username"
         error={errors.username}
         inputProps={{
-          innerRef: register({ required: "username is required" }),
+          ref: register({ required: "username is required" }),
         }}
       />
       <FormGroup
@@ -74,7 +74,7 @@ export default function RegisterForm() {
         label="Email"
         error={errors.email}
         inputProps={{
-          innerRef: register({ required: "email is required" }),
+          ref: register({ required: "email is required" }),
         }}
       />
       <FormGroup
@@ -82,7 +82,7 @@ export default function RegisterForm() {
         label="First name"
         error={errors.firstName}
         inputProps={{
-          innerRef: register({ required: "first name is required" }),
+          ref: register({ required: "first name is required" }),
         }}
       />
       <FormGroup
@@ -90,7 +90,7 @@ export default function RegisterForm() {
         label="Last name"
         error={errors.lastName}
         inputProps={{
-          innerRef: register,
+          ref: register,
         }}
       />
       <FormGroup
@@ -99,11 +99,11 @@ export default function RegisterForm() {
         error={errors.password}
         inputProps={{
           type: "password",
-          innerRef: register({
+          ref: register({
             required: "password is required",
             minLength: {
-              value: 8,
-              message: "password must be at least 8 characters",
+              value: 6,
+              message: "password must be at least 6 characters",
             },
           }),
         }}
@@ -114,7 +114,7 @@ export default function RegisterForm() {
         error={errors.rePassword}
         inputProps={{
           type: "password",
-          innerRef: register({
+          ref: register({
             validate: (value) =>
               value === currentPassword || "The passwords do not match",
           }),
