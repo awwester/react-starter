@@ -24,12 +24,12 @@ export default function RegisterForm() {
     watch,
   } = useForm({
     defaultValues: {
-      username: "adam1",
-      firstName: "aaa",
-      lastName: "bbb",
-      email: "adam1@asdf.com ",
-      password: "asdf1234",
-      rePassword: "asdf1234",
+      username: "",
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+      rePassword: "",
     },
   });
   const { isSubmitting } = formState;
